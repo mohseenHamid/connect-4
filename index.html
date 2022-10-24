@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Connect 4</title>
+		<link rel="stylesheet" href="./main.css" />
+	</head>
+
+	<body>
+		<div class="main-container">
+			<!-- NAMES FORM PAGE -->
+			<div id="names-form-page">
+				<div class="form-page-content">
+					<div>
+						<h1 class="message" id="title">Connect 4</h1>
+					</div>
+
+					<div>
+						<h3 class="message" id="form-message">Please enter your names!</h3>
+
+						<div id="form-table">
+							<div class="form-table-row">
+								<p><label for="player1" class="form-names">Player 1:</label></p>
+								<p>
+									<input
+										type="text"
+										class="form-names-boxes"
+										id="p1name"
+										name="p1name"
+										maxlength="10"
+									/>
+								</p>
+							</div>
+
+							<div class="form-table-row">
+								<p><label for="player2" class="form-names">Player 2:</label></p>
+								<p>
+									<input
+										type="text"
+										class="form-names-boxes"
+										id="p2name"
+										name="p2name"
+										maxlength="10"
+									/>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<button type="button" class="game-buttons" id="submit-names-button">
+							Let's Begin!
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- GAME PAGE -->
+			<div id="game-page">
+				<div class="game-page-left-container">
+					<div id="player-message">
+						<div>
+							<h3 class="message" id="player-turn"></h3>
+						</div>
+						<!-- Hover Text -->
+						<div id="winning-hover-message">
+							<h3 class="message" id="winner-message"></h3>
+							<span id="winning-hover-message-text">
+								Please select <br />
+								"Board Reset" or "Change Players" <br />
+								to continue</span
+							>
+						</div>
+					</div>
+
+					<table id="game-table">
+						<tr class="row" id="row-0">
+							<td class="slot" id="row-0-column-0"></td>
+							<td class="slot" id="row-0-column-1"></td>
+							<td class="slot" id="row-0-column-2"></td>
+							<td class="slot" id="row-0-column-3"></td>
+							<td class="slot" id="row-0-column-4"></td>
+							<td class="slot" id="row-0-column-5"></td>
+							<td class="slot" id="row-0-column-6"></td>
+						</tr>
+						<tr class="row" id="row-1">
+							<td class="slot" id="row-1-column-0"></td>
+							<td class="slot" id="row-1-column-1"></td>
+							<td class="slot" id="row-1-column-2"></td>
+							<td class="slot" id="row-1-column-3"></td>
+							<td class="slot" id="row-1-column-4"></td>
+							<td class="slot" id="row-1-column-5"></td>
+							<td class="slot" id="row-1-column-6"></td>
+						</tr>
+						<tr class="row" id="row-2">
+							<td class="slot" id="row-2-column-0"></td>
+							<td class="slot" id="row-2-column-1"></td>
+							<td class="slot" id="row-2-column-2"></td>
+							<td class="slot" id="row-2-column-3"></td>
+							<td class="slot" id="row-2-column-4"></td>
+							<td class="slot" id="row-2-column-5"></td>
+							<td class="slot" id="row-2-column-6"></td>
+						</tr>
+						<tr class="row" id="row-3">
+							<td class="slot" id="row-3-column-0"></td>
+							<td class="slot" id="row-3-column-1"></td>
+							<td class="slot" id="row-3-column-2"></td>
+							<td class="slot" id="row-3-column-3"></td>
+							<td class="slot" id="row-3-column-4"></td>
+							<td class="slot" id="row-3-column-5"></td>
+							<td class="slot" id="row-3-column-6"></td>
+						</tr>
+						<tr class="row" id="row-4">
+							<td class="slot" id="row-4-column-0"></td>
+							<td class="slot" id="row-4-column-1"></td>
+							<td class="slot" id="row-4-column-2"></td>
+							<td class="slot" id="row-4-column-3"></td>
+							<td class="slot" id="row-4-column-4"></td>
+							<td class="slot" id="row-4-column-5"></td>
+							<td class="slot" id="row-4-column-6"></td>
+						</tr>
+						<tr class="row" id="row-5">
+							<td class="slot" id="row-5-column-0"></td>
+							<td class="slot" id="row-5-column-1"></td>
+							<td class="slot" id="row-5-column-2"></td>
+							<td class="slot" id="row-5-column-3"></td>
+							<td class="slot" id="row-5-column-4"></td>
+							<td class="slot" id="row-5-column-5"></td>
+							<td class="slot" id="row-5-column-6"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="game-page-right-container">
+					<table id="game-counter">
+						<tr class="gc-row">
+							<th id="gc-title" colspan="3">Game Counter</th>
+						</tr>
+						<tr class="gc-row">
+							<th class="gc-column gc-column-title gc-left gc-top">Player</th>
+							<th class="gc-column gc-column-title gc-top">Token</th>
+							<th class="gc-column gc-column-title gc-top gc-right gc-score">
+								Score
+							</th>
+						</tr>
+						<tr class="gc-row">
+							<td class="gc-column gc-left" id="p1-counter-name">p1</td>
+							<td class="gc-column" id="p1-color"></td>
+							<td class="gc-column gc-right" id="p1-score">0</td>
+						</tr>
+						<tr class="gc-row">
+							<td class="gc-column gc-left gc-bottom" id="p2-counter-name">
+								p2
+							</td>
+							<td class="gc-column gc-bottom" id="p2-color"></td>
+							<td class="gc-column gc-bottom gc-right" id="p2-score">0</td>
+						</tr>
+					</table>
+
+					<div id="in-game-buttons">
+						<button class="game-buttons" id="reset-button">Board Reset</button>
+						<button class="game-buttons" id="change-players-button">
+							Change Players
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./main.js"></script>
+	</body>
+</html>
