@@ -6,6 +6,7 @@ const submitNamesButton = document.getElementById("submit-names-button");
 const gameTitle = document.getElementById("title");
 const p1FormName = document.getElementById("p1name");
 const p2FormName = document.getElementById("p2name");
+const formBoxes = document.getElementsByClassName("form-name-boxes");
 
 // gamePage
 const gamePage = document.getElementById("game-page");
@@ -30,7 +31,7 @@ const p2Color = document.getElementById("p2-color");
 
 // --- GAME CODE ---
 
-// CHANGING BG
+// --- CHANGING BG START ---
 // function changeFormBG() {
 // 	const images = [
 // 		"url('https://www.hdwallpapers.in/download/purple_planet_and_purple_space_hd_purple-1920x1080.jpg')",
@@ -51,7 +52,7 @@ const p2Color = document.getElementById("p2-color");
 // }
 // setInterval(changeFormBG, 3000);
 // changeFormBG();
-// CHANGING BG END
+// --- CHANGING BG END ---
 
 // --- HIDING gamePage WHILE ON namesFormPage ---
 gamePage.style.display = "none";
@@ -118,6 +119,17 @@ function initiateGame() {
 	}
 }
 submitNamesButton.addEventListener("click", initiateGame);
+// Calling initiateGame when "Enter" is pressed in the form-name-boxes
+p1FormName.addEventListener("keypress", function (event) {
+	if (event.key === "Enter") {
+		initiateGame();
+	}
+});
+p2FormName.addEventListener("keypress", function (event) {
+	if (event.key === "Enter") {
+		initiateGame();
+	}
+});
 
 // Displaying gamePage + Setting initial game conditions
 function startGame() {
@@ -176,9 +188,11 @@ function checkWinner() {
 					jsBoard[rowIndex][columnIndex + 2] ==
 						jsBoard[rowIndex][columnIndex + 3]
 				) {
-					alert(`The winner is ${currPlayer.name}!`);
+					setTimeout(() => {
+						alert(`The winner is ${currPlayer.name}!`);
+					}, 500);
 
-					// CODE TO CHANGE STYLE OF WINNING COMBINATION
+					// Code to edit the winning slots
 					for (let c = columnIndex; c <= columnIndex + 3; c++) {
 						let winSlot = document.getElementById(
 							`row-${rowIndex}-column-${c}`
@@ -201,12 +215,14 @@ function checkWinner() {
 					winnerMessage.style.display = "flex";
 					winnerMessage.innerText = `The winner is ${currPlayer.name}!`;
 					winnerMessage.style.color = currPlayer.color;
-					gameOver = true;
+
 					if (currPlayer === player1) {
 						p1Score.innerText++;
 					} else {
 						p2Score.innerText++;
 					}
+
+					gameOver = true;
 					return;
 				}
 			}
@@ -225,7 +241,10 @@ function checkWinner() {
 					jsBoard[rowIndex + 2][columnIndex] ==
 						jsBoard[rowIndex + 3][columnIndex]
 				) {
-					alert(`The winner is ${currPlayer.name}!`);
+					setTimeout(() => {
+						alert(`The winner is ${currPlayer.name}!`);
+					}, 500);
+
 					// Code to edit the winning slots
 					for (let r = rowIndex; r <= rowIndex + 3; r++) {
 						let winSlot = document.getElementById(
@@ -239,11 +258,13 @@ function checkWinner() {
 					winnerMessage.style.display = "flex";
 					winnerMessage.innerText = `The winner is ${currPlayer.name}!`;
 					winnerMessage.style.color = currPlayer.color;
+
 					if (currPlayer === player1) {
 						p1Score.innerText++;
 					} else {
 						p2Score.innerText++;
 					}
+
 					gameOver = true;
 					return;
 				}
@@ -263,9 +284,11 @@ function checkWinner() {
 					jsBoard[rowIndex + 2][columnIndex + 2] ==
 						jsBoard[rowIndex + 3][columnIndex + 3]
 				) {
-					alert(`The winner is ${currPlayer.name}!`);
+					setTimeout(() => {
+						alert(`The winner is ${currPlayer.name}!`);
+					}, 500);
 
-					// CODE TO CHANGE STYLE OF WINNING COMBINATION
+					// Code to edit the winning slots
 					let winSlot1 = document.getElementById(
 						`row-${rowIndex}-column-${columnIndex}`
 					);
@@ -313,9 +336,11 @@ function checkWinner() {
 					jsBoard[rowIndex - 2][columnIndex + 2] ==
 						jsBoard[rowIndex - 3][columnIndex + 3]
 				) {
-					alert(`The winner is ${currPlayer.name}!`);
+					setTimeout(() => {
+						alert(`The winner is ${currPlayer.name}!`);
+					}, 500);
 
-					// CODE TO CHANGE STYLE OF WINNING COMBINATION
+					// Code to edit the winning slots
 					let winSlot1 = document.getElementById(
 						`row-${rowIndex}-column-${columnIndex}`
 					);
@@ -338,6 +363,7 @@ function checkWinner() {
 					winnerMessage.style.display = "flex";
 					winnerMessage.innerText = `The winner is ${currPlayer.name}!`;
 					winnerMessage.style.color = currPlayer.color;
+
 					if (currPlayer === player1) {
 						p1Score.innerText++;
 					} else {
@@ -380,6 +406,7 @@ function setMove(event) {
 				`Row (to be updated) identification checker: ${boardSlotRow.id}`
 			);
 			// Declaring the slot being changed
+			let topSlot = document.getElementById(`row-0-column-${columnIndex}`);
 			let boardSlot = document.getElementById(
 				`row-${rowIndex}-column-${columnIndex}`
 			);
@@ -388,9 +415,15 @@ function setMove(event) {
 			);
 			// Changing BG of HTML cell (boardSlot)
 			if (currPlayer.color == "Yellow") {
+				topSlot.style.background =
+					"url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1077px-Star_icon_stylized.svg.png')";
+
 				boardSlot.style.background =
 					"url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1077px-Star_icon_stylized.svg.png')";
 			} else if (currPlayer.color == "Red") {
+				topSlot.style.background =
+					"url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1077px-Star_icon_stylized.svg.png')";
+
 				boardSlot.style.background =
 					"url('https://www.nicepng.com/png/full/50-502241_favicon-red-star-icon.png')";
 			}
@@ -401,6 +434,14 @@ function setMove(event) {
 			// Cancelling mouseover details
 			boardSlot.style.boxShadow = "none";
 			boardSlot.style.opacity = 1;
+
+			// TOPSLOT CODE
+			topSlot.style.backgroundSize = "contain";
+			topSlot.style.backgroundRepeat = "no-repeat";
+			topSlot.style.backgroundColor = currPlayer.color;
+			// Cancelling mouseover details
+			topSlot.style.boxShadow = "none";
+			topSlot.style.opacity = 1;
 
 			// Check for winning combinations
 			checkWinner();

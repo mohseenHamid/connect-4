@@ -11,14 +11,6 @@ body {
 	text-align: center;
 }
 
-.main-container {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-}
-
 .game-buttons {
 	background-image: linear-gradient(
 		92.88deg,
@@ -48,8 +40,6 @@ body {
 	/* box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px; */
 	box-shadow: wheat 0 1px 30px;
 	transition: box-shadow 0.1s;
-	font-size: 22px;
-	transition: font-size 0.3s;
 }
 
 .message {
@@ -66,33 +56,28 @@ body {
 	justify-content: center;
 	height: 100vh;
 	width: 100%;
-	background-image: url("https://www.hdwallpapers.in/download/purple_planet_and_purple_space_hd_purple-1920x1080.jpg");
+	/* background-image: url("./images/planet-bg.png"); */
+	background-image: url("./images/purple-planet.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	/* transition: 1.5s; */
 }
 
 .form-page-content {
-	background-image: url("https://wallpaperaccess.com/full/1866562.png");
+	background-image: url("./images/dark-night-bg.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 
-	padding: 0 12px;
+	padding: 2em;
 	border: #455eb5 solid 5px;
 	border-radius: 25px;
 	transition: all 0.3s;
 	transition: box-shadow 0.1s;
-	height: 65vh;
-	width: 30%;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
 	gap: 50px;
-}
-.form-page-content:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
 }
 
 #title {
@@ -106,7 +91,6 @@ body {
 	color: #455eb5;
 	/* color: yellow; */
 	transition: color 0.3s;
-	/* background-image: url("https://www.hdwallpapers.in/download/purple_planet_and_purple_space_hd_purple-1920x1080.jpg"); */
 }
 
 #form-message {
@@ -138,10 +122,6 @@ body {
 	justify-content: center;
 	gap: 10px;
 }
-.form-table-row:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-}
 
 .form-names {
 	font-size: 25px;
@@ -158,38 +138,33 @@ body {
 	font-size: 23px;
 	font-weight: 700;
 }
-.form-names-boxes:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-	font-size: 25px;
-	transition: font-size 0.3s;
-}
 
 /* IN-GAME PAGE */
 #game-page {
-	background-image: url("https://images.wallpaperscraft.com/image/single/rocks_castle_art_144967_2560x1080.jpg");
+	min-height: 100vh;
+
+	background-image: url("./images/rocks-bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 
-	height: 100vh;
-	width: 100%;
+	min-width: 100%;
+	padding: 5rem;
+
 	display: flex;
 	align-items: center;
-	flex-direction: row;
-	justify-content: center;
-	gap: 10%;
+	justify-content: space-evenly;
+	gap: 3rem;
 }
 
 .game-page-left-container {
 	display: flex;
-	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	gap: 10px;
+	gap: 1rem;
 }
 
 .game-page-right-container {
-	background-image: url("https://wallpaperaccess.com/full/1866562.png");
+	background-image: url("./images/dark-night-bg.png");
 	background-size: cover;
 
 	display: flex;
@@ -202,17 +177,13 @@ body {
 	padding: 3rem;
 	border-spacing: 10px;
 }
-.game-page-right-container:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
+
+.gc-container {
+	width: 100%;
 }
 
 #game-table {
-	/* width: 800px; */
-	/* height: 720px; */
-	width: auto;
-	height: auto;
-	background-image: url("https://wallpaperaccess.com/full/1866562.png");
+	background-image: url("./images/dark-night-bg.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 
@@ -220,15 +191,15 @@ body {
 	border-radius: 25px;
 	padding: 2rem;
 	border-spacing: 10px;
-}
-#game-table:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .slot {
-	width: 100px;
-	height: 100px;
+	min-width: 85px;
+	height: 85px;
 	background-color: wheat;
 	border: #455eb5 solid 3px;
 	border-radius: 50%;
@@ -236,19 +207,13 @@ body {
 }
 
 #game-counter {
-	width: 370px;
-	border: wheat solid 3px;
-	border-radius: 25px;
 	text-align: center;
 	font-size: 23px;
 	font-weight: 600;
 	color: wheat;
-	padding: 1.5rem;
+	min-width: 100%;
 }
-#game-counter:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-}
+
 .gc-row,
 .gc-column {
 	border-bottom: wheat solid 3px;
@@ -258,12 +223,6 @@ body {
 	font-size: 18px;
 	font-weight: 600;
 	color: wheat;
-}
-.gc-column:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-	font-size: 20px;
-	transition: font-size 0.3s;
 }
 /* .gc-left {
 	border-left: 0;
@@ -283,22 +242,12 @@ body {
 	border: wheat solid 1.5px;
 	border-radius: 25px;
 }
-#gc-title:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-	font-size: 37px;
-	transition: font-size 0.3s;
-}
+
 .gc-column-title {
 	font-size: 25px;
 	font-weight: 700;
 }
-.gc-column-title:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-	font-size: 27px;
-	transition: font-size 0.3s;
-}
+
 #p1-color {
 	color: red;
 }
@@ -308,6 +257,7 @@ body {
 
 #in-game-buttons {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	flex-direction: row;
 	justify-content: center;
@@ -316,7 +266,7 @@ body {
 
 #winner-message,
 #player-turn {
-	background-image: url("https://wallpaperaccess.com/full/1866562.png");
+	background-image: url("./images/dark-night-bg.png");
 	background-size: cover;
 
 	padding: 10px;
@@ -325,18 +275,6 @@ body {
 	justify-content: center;
 	text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
 	transition: all 0.5s;
-}
-#player-turn:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-	font-size: 42px;
-	transition: font-size 0.3s;
-}
-#winner-message:hover {
-	box-shadow: wheat 0 0 15px;
-	transition: box-shadow 0.1s;
-	font-size: 42px;
-	transition: font-size 0.3s;
 }
 
 /* Hover text for winner-message */
@@ -368,4 +306,31 @@ body {
 	visibility: visible;
 	box-shadow: wheat 0 1px 30px;
 	transition: box-shadow 0.1s;
+}
+
+/* UNIVERSAL HOVER */
+#gc-title:hover,
+#player-turn:hover,
+#winner-message:hover,
+.gc-column-title:hover,
+.gc-column:hover,
+.form-page-content:hover,
+.form-table-row:hover,
+#game-table:hover,
+.game-page-right-container:hover,
+.form-names-boxes:hover {
+	box-shadow: wheat 0 0 15px;
+	transition: box-shadow 0.1s;
+}
+
+@media screen and (max-width: 1500px) {
+	#game-page {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.slot {
+		min-width: 100px;
+		height: 100px;
+	}
 }
